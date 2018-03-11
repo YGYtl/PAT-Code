@@ -37,8 +37,10 @@ int main()
   }
   j1 = jb+jc+jj;
   y1 = yb+yc+yj;
+  
   printf("%d %d %d\n", j1, n-j1-y1, y1);
   printf("%d %d %d\n", y1, n-j1-y1, j1);
+  
   if(jb>=jc&&jb>=jj) printf("B ");
   else if(jc>jb&&jc>=jj) printf("C ");
   else if(jj>jb&&jj>jc) printf("J ");
