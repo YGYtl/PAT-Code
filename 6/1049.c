@@ -9,8 +9,9 @@ int main()
   for(i=1; i<=n; i++)
   {
     scanf("%lf", &a[i]);
-    sum = sum + a[i]*i*(n-i+1);
+//    sum = sum + a[i]*i*(n-i+1);
+    printf("%.2f\n", a[i]*i*(n-i+1));
   }
-  printf("%.2f", sum);
+//  printf("%.2f", sum);
   return 0;
 }
