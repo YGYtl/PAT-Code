@@ -1,5 +1,11 @@
-#include<stdio.h>
-void mo(int *a, int n);
+#include<cstdio>
+#include<algorithm>
+#include<iostream>
+using namespace std;
+bool cmp(int a, int b)
+{
+	return a > b;
+}
 void print(int b[][100], int h, int l);
 int main()
 {
@@ -7,13 +13,9 @@ int main()
     int b[100][100]={'\0'};
     scanf("%d", &n);
     int i;
-    for(i=0; i<n; i++)
-    {
-      scanf("%d", &a[i]);
-    }
-    int j, k, o=0, min=n, h=n, l=1;
-
-    for(i=2; i*i<=n; i++)
+    for(i=0; i<n; i++) scanf("%d", &a[i]);
+    int j, k, o=0, h=n, l=1;
+    for(i=2; i*i<=n; i++)//ÅÐ¶ÏÊÇ·ñÎªËØÊý 
     {
         if(n%i==0)
         {
@@ -24,7 +26,7 @@ int main()
     if(o==1)
     {
     	h = n/l;
-	    mo(a, n);
+    	sort(a,a+n,cmp);
 	    o=0, j=0, k=0;
 	    b[j][k] = a[o++];
   	    while(o<n)
@@ -37,30 +39,13 @@ int main()
 	    print(b, h, l);
     }
     else{
-    	mo(a, n);
+    	sort(a,a+n,cmp);
     	for(i=0; i<n; i++)
     	{
     		printf("%d\n", a[i]);
 		}
 	}
     return 0;
-}
-
-void mo(int *a, int n)
-{
-    int j, k, o;
-    for(j=1; j<n; j++)
-    {
-        for(k=0; k<n-j; k++)
-        {
-            if(a[k]<a[k+1])
-            {
-                o = a[k];
-                a[k] = a[k+1];
-                a[k+1] = o;
-            }
-        }
-    }
 }
 
 void print(int b[][100], int h, int l)
