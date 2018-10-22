@@ -4,7 +4,7 @@ int main()
   int n;
   scanf("%d", &n);
   int i;
-  double a[100001] = {0};
+  double a[100001] = {'\0'};
   double sum=0.0;
   for(i=1; i<=n; i++)
   {
