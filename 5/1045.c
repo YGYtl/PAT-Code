@@ -1,40 +1,33 @@
 #include <stdio.h>
 int main()
 {
-	//1 3 2 4 5
-    int N, count = 0;
-    int array[100000], lmax[100000], rmin[100000];
-    
-    scanf("%d", &N);
+    int n, count = 0;
+    int a[100001], lmax[100001], rmin[100001];
+    scanf("%d", &n);
     int i, max, min;
-    for(i = 0; i < N; i++) scanf("%d", array + i);
-
-    for(i = 0, max = 0; i < N; i++)
+    for(i = 0; i < n; i++) scanf("%d", &a[i]);
+    for(i = 0, max = 0; i < n; i++)
     {
-    	lmax[i] = array[i] >= array[max] ? array[max = i] : array[max];
-//    	printf("%d ", lmax[i]);
+    	lmax[i] = a[i] >= a[max] ? a[max = i] : a[max];
 	}
-//	printf("\n");
-    for(i = N - 1, min = i; i >= 0; i--)
+    for(i = n - 1, min = i; i >= 0; i--)
     {
-    	rmin[i] = array[i] <= array[min] ? array[min = i] : array[min];
-//    	printf("%d ", rmin[i]);
+    	rmin[i] = a[i] <= a[min] ? a[min = i] : a[min];
 	}
-//	printf("\n");
-
-    for(i = 0; i < N; i++)
+    for(i = 0; i < n; i++)
     {
-        if(array[i] == lmax[i] && array[i] == rmin[i])
+        if(a[i] == lmax[i] && a[i] == rmin[i])
         {
             count++;
 		}
         else
-            array[i] = 0;
+            a[i] = 0;
     }
 
     printf("%d\n", count);
-    for(i = 0; i < N && count; i++) if(array[i])
-        printf("%d%c", array[i], --count ? ' ' : '\0');
+    for(i = 0; i < n && count; i++)
+		if(a[i])
+	        printf("%d%c", [i], --count ? ' ' : '\0');
     printf("\n");
     return 0;
 }
