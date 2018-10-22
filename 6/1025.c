@@ -15,7 +15,6 @@ int main()
 		scanf("%d", &o);
 		scanf("%d %d", &a.value[o], &a.list[o]);
 	}
-	
 	while(head!=-1)
 	{
 		a.first[c++] = head;
